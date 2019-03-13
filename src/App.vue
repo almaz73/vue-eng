@@ -14,70 +14,52 @@
             <div id="templatemo_menu">
                 <ul id="templatemo_left_menu">
                     <li>
-                        <router-link to="/" :class="{current:tag('/')}"><span></span>Home</router-link>
+                        <router-link to="/" :class="tag('/')"><span></span>Home</router-link>
                     </li>
                     <li>
-                        <router-link to="/unit1" :class="{current:tag('/unit1')}"><span></span>Unit 1</router-link>
+                        <router-link to="/unit1" :class="tag('/unit1')"><span></span>Unit 1</router-link>
                     </li>
                     <li>
-                        <router-link to="/unit2" :class="{current:tag('/unit2')}"><span></span>Unit 2</router-link>
+                        <router-link to="/unit2" :class="tag('/unit2')"><span></span>Unit 2</router-link>
                     </li>
                     <li>
-                        <router-link to="/unit3" :class="{current:tag('/unit3')}"><span></span>Unit 3</router-link>
+                        <router-link to="/unit3" :class="tag('/unit3')"><span></span>Unit 3</router-link>
                     </li>
                     <li>
-                        <router-link to="/unit4" :class="{current:tag('/unit4')}"><span></span>Unit 4</router-link>
+                        <router-link to="/unit4" :class="tag('/unit4')"><span></span>Unit 4</router-link>
                     </li>
                 </ul>
 
 
-                <ul id="templatemo_right_menu">
-                    <li><a href="" class="first">Bibliography</a></li>
-                </ul>
+                <div id="templatemo_right_menu">
+                    <li>
+                        <router-link to="/bibliography" class="first">Bibliography 3</router-link>
+                    </li>
+                </div>
             </div> <!-- end of menu -->
 
 
-            <div id="templatemo_banner">
-
+            <div id="templatemo_banner" :class="tagPic()" ref="pic">
                 <router-view/>
-
-                <div id="banner_left_section">
-
-
-                </div>
-
-                <div id="login_section">
-                </div>
-
-                <div class="cleaner"></div>
             </div> <!-- end of banner -->
 
             <div id="templatemo_footer">
 
                 <ul class="footer_menu">
                     <li>
-                        <router-link :style="{textDecoration: tag('/')?'underline':''}" to="/"><span></span>Home
-                        </router-link>
+                        <router-link :style="tagLink('/')" to="/">Home</router-link>
                     </li>
                     <li>
-                        <router-link :style="{textDecoration: tag('/unit1')?'underline':''}" to="/unit1"><span></span>Unit
-                            1
-                        </router-link>
+                        <router-link :style="tagLink('/unit1')" to="/unit1">Unit 1</router-link>
                     </li>
                     <li>
-                        <router-link :style="{textDecoration: tag('/unit2')?'underline':''}" to="/unit2"><span></span>Unit
-                            2
-                        </router-link>
+                        <router-link :style="tagLink('/unit2')" to="/unit2">Unit 2</router-link>
                     </li>
                     <li>
-                        <router-link :style="{textDecoration: tag('/unit3')?'underline':''}" to="/unit3"><span></span>Unit
-                            3
-                        </router-link>
+                        <router-link :style="tagLink('/unit3')" to="/unit3">Unit 3</router-link>
                     </li>
                     <li>
-                        <router-link :style="{textDecoration: tag('/unit4')?'underline':''}" to="/unit4"><span></span>Unit
-                            4
-                        </router-link>
+                        <router-link :style="tagLink('/unit4')" to="/unit4">Unit 4</router-link>
                     </li>
                 </ul>
 
@@ -93,8 +75,15 @@
     export default {
         name: 'app',
         methods: {
-            tag: function (val) {
-                return '#' + val == document.location.hash
+            tag(val) {
+                return val == this.$router.history.current.path ? 'current' : ''
+            },
+            tagLink(val) {
+                let exist = val == this.$router.history.current.path;
+                return {textDecoration: exist ? 'underline' : ''}
+            },
+            tagPic() {
+                return 'u' + this.$router.history.current.path.substr(-1);
             }
         }
     }

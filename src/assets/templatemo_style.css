@@ -327,6 +327,25 @@ h5 {
     margin-bottom: 30px;
 }
 
+#templatemo_banner .u0{
+    background-image: url(../assets/images/tp0.png);
+}
+#templatemo_banner.u1{
+    background-image: url(../assets/images/tp1.png);
+}
+#templatemo_banner.u2{
+    background-image: url(../assets/images/tp2.png);
+}
+#templatemo_banner.u3{
+    background-image: url(../assets/images/tp3.png);
+}
+#templatemo_banner.u4{
+    background-image: url(../assets/images/tp4.png);
+}
+#templatemo_banner.u5{
+    background-image: url(../assets/images/tp5.png);
+}
+
 #templatemo_banner p {
     text-align: justify;
 }
