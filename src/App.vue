@@ -68,10 +68,7 @@
         </div>
     </div>
 </template>
-
 <script>
-
-
     export default {
         name: 'app',
         methods: {
@@ -88,6 +85,7 @@
         }
     }
 </script>
+
 
 <style>
     @import './assets/templatemo_style.css';
