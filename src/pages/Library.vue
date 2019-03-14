@@ -1,0 +1,28 @@
+<template>
+    <div>
+        <div style="margin-top:-140px">
+            <h3 style="color:yellow">Библиография</h3><br>
+            <ul style="margin-left:-20px"><li>Боярская А.О., Ладутько Н.Ф., Митьковец Н.Е. Spoken English for Transportation: пособие. – Минск: БНТУ, 2012 – 78 с.<br></li>
+                <li>Воронкова С.О., Стычкова В. И. Английский для студентов специальности «Транспортная логистика». Ч.2: учебное пособие –  Самара, 2010. – 80 с. <br></li>
+                <li>Marion Grussendorf. English for Logistics. – Oxford University Press, 2009. – 94 с.<br></li>
+                <li>Marie Kavanagh. English for the Automobile Industry.– Oxford University Press, 2012. – 78 с.<br></li>
+                <li>Ernesto D’Acunto. Flash on English for Transport and Logistics. – ELI S.R.L., 2012. – 48 с.</li></ul><br><br><br>
+            <h3 style="color:yellow">Интернет-источники</h3><br>
+            http://en.wikipedia.org<br>
+            http://www.transportweekly.com/<br>
+            http://www.english.language.ru<br>
+            http://www.homeenglish.ru<br>
+            http://www.fluent-english.ru<br>
+        </div><br>
+    </div>
+</template>
+
+<script>
+    export default {
+        name: "Library"
+    }
+</script>
+
+<style scoped>
+
+</style>

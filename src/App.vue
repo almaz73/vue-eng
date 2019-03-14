@@ -33,7 +33,7 @@
 
                 <div id="templatemo_right_menu">
                     <li>
-                        <router-link to="/bibliography" class="first">Bibliography 3</router-link>
+                        <router-link to="/library" class="first">Bibliography 3</router-link>
                     </li>
                 </div>
             </div> <!-- end of menu -->
