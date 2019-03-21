@@ -319,10 +319,11 @@ h5 {
 
 #templatemo_banner {
     clear: both;
-    max-width: 1150px;
+    max-width: 1120px;
     min-width: 750px;
-    padding: 170px 15px 15px 15px;
-    background: #00aeef url(../assets/images/tp0.png) center top no-repeat;
+    padding: 170px 30px 15px 30px;
+    background: #959da0 url(../assets/images/tp0.png) center top no-repeat;
+    /*#00aeef*/
     margin: 0 auto;
     margin-bottom: 30px;
 }
@@ -520,7 +521,7 @@ h5 {
 
 .check {
     border-radius: 20px;
-    background: #00AEEF;
+    background: #959da0;
     padding: 5px 20px;
     cursor: pointer;
 }
@@ -560,7 +561,7 @@ h5 {
 }
 
 .inputIn {
-    background: #00aeef;
+    background: #959da0;
     width: 120px;
     border: none;
     border-bottom: 1px solid white;

@@ -210,7 +210,9 @@
 
 <script>
     import '../assets/js/myApp.js';
-    import '../assets/js/DragManager.js';
+    import DragManager from '../assets/js/DragManager.js';
+
+    console.log('...DragManager=', DragManager);
 
     export default {
         name: "Unit1",
@@ -225,7 +227,7 @@
 <li>Logistics - that’s the purchasing, distribution , and replacement of material and staff.</li>\
 <li>Logistics is the planning and support of operations such as warehousing, inventory, transport, procurement, supply,</li>\
 and maintenance.";
-                myApp(text, ["provide", "storage", "delivery", "distribution", "support", "maintenance"])
+                this.myApp(text, ["provide", "storage", "delivery", "distribution", "support", "maintenance"])
             },
             js0_3() {
                 var
@@ -247,6 +249,51 @@ and maintenance.";
 
                 }
                 document.getElementById('d1_3').innerHTML = " <br><span style='color:yellow'>Correct: " + correct + "</span><br><span style='color:red'> Incorrect:" + incorrect + "</span>";
+            },
+            myApp(text, dictin){
+                console.log('...text, dictin=', text, dictin);
+                function myReplace(obj){
+                    console.log('...obj=', obj);
+                    for(var a in obj){
+                        text = text.replace(obj[a], '<a href="javascript:void(0)"  class="droppable" name="'+obj[a]+'" title="Перетащите слово"> _ _ _ </a>');
+                    }
+                }
+                myReplace(dictin);
+
+
+                DragManager.onDragCancel = function(dragObject) {
+                    console.log('. onDragCancel     ..dragObject=', dragObject);
+                    dragObject.avatar.rollback();
+                };
+
+                DragManager.onDragEnd = function(dragObject, dropElem) {
+
+                    var check = (dragObject.avatar.textContent ===  dropElem.name);
+
+                    dragObject.avatar.setAttribute("check", check );
+                    dragObject.elem.style.position = 'inherit';
+                    dragObject.avatar.className='drag';
+
+                    dropElem.text='';
+                    dropElem.appendChild(dragObject.avatar);
+                    console.log('.onDragEnd      ..dragObject, dropElem=', dragObject, dropElem);
+                };
+
+
+                var words = '';
+                dictin.map(item=>{
+                    var rand = (Math.random()*2);
+                    if(rand>1){
+                        words ='<div class="draggable drag">'+item+'</div>'+words;
+                    }else{
+                        words +='<div class="draggable drag">'+item+'</div>'
+                    }
+
+                })
+
+
+                document.getElementById('myText').innerHTML = text;
+                document.querySelector('.area.mycenter').innerHTML = words;
             }
         }
     }
