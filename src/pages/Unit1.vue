@@ -210,9 +210,10 @@
 
 <script>
     import '../assets/js/myApp.js';
+    import DragManager from '../assets/js/DragManager.js'
     // import DragManager from '../assets/js/DragManager.js';
     //
-    // console.log('...DragManager=', DragManager);
+    console.log('...DragManager=', DragManager);
 
     export default {
         name: "Unit1",

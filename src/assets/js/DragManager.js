@@ -156,3 +156,5 @@ function getCoords(elem) { // кроме IE8-
   };
 
 }
+
+export default DragManager;
