@@ -1,4 +1,9 @@
+import DragManager from '../../assets/js/DragManager.js';
+
 function myApp(text, dictin) {
+
+    console.log('...text, dictin=', text, dictin);
+
     function myReplace(obj) {
         for (var a in obj) {
             text = text.replace(obj[a], '<a href="javascript:void(0)"  class="droppable" name="' + obj[a] + '" title="Перетащите слово"> _ _ _ </a>');

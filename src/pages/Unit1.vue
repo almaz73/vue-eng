@@ -209,8 +209,8 @@
 </template>
 
 <script>
-    import '../assets/js/myApp.js';
     import DragManager from '../assets/js/DragManager.js'
+    import '../assets/js/myApp.js';
     // import DragManager from '../assets/js/DragManager.js';
     //
     console.log('...DragManager=', DragManager);
