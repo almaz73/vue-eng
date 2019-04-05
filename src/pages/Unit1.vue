@@ -210,9 +210,9 @@
 
 <script>
     import '../assets/js/myApp.js';
-    import DragManager from '../assets/js/DragManager.js';
-
-    console.log('...DragManager=', DragManager);
+    // import DragManager from '../assets/js/DragManager.js';
+    //
+    // console.log('...DragManager=', DragManager);
 
     export default {
         name: "Unit1",
@@ -245,51 +245,28 @@ and maintenance.";
                     } else {
                         incorrect += '(' + (a + 1) + ')';
                     }
-                    ;
-
                 }
                 document.getElementById('d1_3').innerHTML = " <br><span style='color:yellow'>Correct: " + correct + "</span><br><span style='color:red'> Incorrect:" + incorrect + "</span>";
             },
-            myApp(text, dictin){
-                console.log('...text, dictin=', text, dictin);
-                function myReplace(obj){
-                    console.log('...obj=', obj);
-                    for(var a in obj){
-                        text = text.replace(obj[a], '<a href="javascript:void(0)"  class="droppable" name="'+obj[a]+'" title="Перетащите слово"> _ _ _ </a>');
+            myApp(text, dictin) {
+                function myReplace(obj) {
+                    for (var a in obj) {
+                        text = text.replace(obj[a], '<a href="javascript:void(0)"  class="droppable" name="' + obj[a] + '" title="Перетащите слово"> _ _ _ </a>');
                     }
                 }
+
                 myReplace(dictin);
 
-
-                DragManager.onDragCancel = function(dragObject) {
-                    console.log('. onDragCancel     ..dragObject=', dragObject);
-                    dragObject.avatar.rollback();
-                };
-
-                DragManager.onDragEnd = function(dragObject, dropElem) {
-
-                    var check = (dragObject.avatar.textContent ===  dropElem.name);
-
-                    dragObject.avatar.setAttribute("check", check );
-                    dragObject.elem.style.position = 'inherit';
-                    dragObject.avatar.className='drag';
-
-                    dropElem.text='';
-                    dropElem.appendChild(dragObject.avatar);
-                    console.log('.onDragEnd      ..dragObject, dropElem=', dragObject, dropElem);
-                };
-
-
                 var words = '';
-                dictin.map(item=>{
-                    var rand = (Math.random()*2);
-                    if(rand>1){
-                        words ='<div class="draggable drag">'+item+'</div>'+words;
-                    }else{
-                        words +='<div class="draggable drag">'+item+'</div>'
+                dictin.map(item => {
+                    var rand = (Math.random() * 2);
+                    if (rand > 1) {
+                        words = '<div class="draggable drag">' + item + '</div>' + words;
+                    } else {
+                        words += '<div class="draggable drag">' + item + '</div>'
                     }
 
-                })
+                });
 
 
                 document.getElementById('myText').innerHTML = text;
